@@ -211,4 +211,4 @@ file by defining `dnsmasq_resolvconf: true` and `dnsmasq_host_*` parameters.
 
 ## Author
 
-José Riguera López
+Jose Riguera Lopez
