@@ -3,6 +3,6 @@
 # Configuration file for dnsmasq
 
 {% for host in dnsmasq_conf_hosts -%}
-{{ host | join(' ') }}
+{{ host | join('') }}
 {% endfor %}
 
