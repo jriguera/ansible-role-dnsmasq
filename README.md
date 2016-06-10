@@ -7,6 +7,8 @@ This role supports the definition of different interfaces for different
 purposes (dns, tftp ...) and a lot of dnsmasq parameters. Also it is
 able to manage the resolv.conf file.
 
+Ansible 2.0, works with Ubuntu Trusty, Xenial and Centos 7
+
 
 ## Configuration
 
