@@ -6,7 +6,11 @@ Vagrant.configure(2) do |config|
   config.vm.define "dnsmasq" do |master|
     # Every Vagrant development environment requires a box. You can search for
     # boxes at https://atlas.hashicorp.com/search.
-    master.vm.box = "ubuntu/trusty64"
+    #master.vm.box = "ubuntu/trusty64"
+    # For Xenial
+    #master.vm.box = "ubuntu/xenial64"
+    # On Centos the interfaces are not eth0 ... change the playbooks!
+    master.vm.box = "bento/centos-7.2"
 
     # Disable automatic box update checking. If you disable this, then
     # boxes will only be checked for updates when the user runs
@@ -44,11 +48,11 @@ Vagrant.configure(2) do |config|
     # Enable provisioning with a shell script. Additional provisioners such as
     # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
     # documentation for more information about their specific syntax and use.
-    master.vm.provision "shell", inline: <<-SHELL
-        sudo apt-get update
-    SHELL
+#    master.vm.provision "shell", inline: <<-SHELL
+#        sudo apt-get update
+#    SHELL
     master.vm.provision "ansible" do |ansible|
-  	ansible.playbook = "site.yml"
+	ansible.playbook = "site.yml"
         #ansible.verbose = "vvv"
         #ansible.raw_arguments = "--list-task"
     end
