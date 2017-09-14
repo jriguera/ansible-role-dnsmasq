@@ -11,8 +11,8 @@ dnsmasq_dhcp: True
 dnsmasq_tftp: True
 
 ### resolv.conf
-dnsmasq_host_domain: local 
-dnsmasq_host_search: local
+#dnsmasq_host_domain: local
+#dnsmasq_host_search: local
 dnsmasq_host_resolvers: [ "127.0.0.1" ] 
 
 # Set the facility to which dnsmasq will send syslog entries, this defaults to 
@@ -25,7 +25,7 @@ dnsmasq_conf_log: /var/log/dnsmasq.log
 # Enable asynchronous logging and optionally set the limit on the number of 
 # lines which will be queued by dnsmasq when writing to the syslog is slow.
 #dnsmasq_conf_log_async:
-dnsmasq_conf_log_dns: True
+dnsmasq_conf_log_dns: False
 
 # List of ip or interfaces to listen (empty list for all)
 dnsmasq_conf_listen: []
