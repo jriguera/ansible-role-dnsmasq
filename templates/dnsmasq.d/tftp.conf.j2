@@ -18,13 +18,13 @@ tftp-root={{ values["tftp"] }},{{ key }}
 
 
 {% if dnsmasq_conf_tftp_secure is defined and dnsmasq_conf_tftp_secure -%}
-# Enable TFTP secure mode: without this, any file which is readable by the 
+# Enable TFTP secure mode: without this, any file which is readable by the
 # dnsmasq process under normal unix access-control rules is available via TFTP
 tftp-secure
 {% endif %}
 
 {% if dnsmasq_conf_tftp_lowercase is defined and dnsmasq_conf_tftp_lowercase -%}
-# Convert filenames in TFTP requests to all lowercase. This is useful for 
+# Convert filenames in TFTP requests to all lowercase. This is useful for
 # requests from Windows machines
 tftp-lowercase
 {% endif %}
@@ -33,7 +33,6 @@ tftp-lowercase
 tftp-max={{ dnsmasq_conf_tftp_max | default('50') }}
 
 {% if dnsmasq_conf_tftp_no_blocksize is defined and dnsmasq_conf_tftp_no_blocksize -%}
-# Stop the TFTP server from negotiating the "blocksize" option with a client. 
+# Stop the TFTP server from negotiating the "blocksize" option with a client.
 tftp-no-blocksize
 {% endif %}
-

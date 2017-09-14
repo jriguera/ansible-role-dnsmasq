@@ -1,9 +1,9 @@
 # ansible-role-dnsmasq
 
-A versatile role to setup dnsmasq, created using this philosophy: 
+A versatile role to setup dnsmasq, created using this philosophy:
 https://github.com/jriguera/ansible-role-pattern/blob/master/README.md
 
-This role supports the definition of different interfaces for different 
+This role supports the definition of different interfaces for different
 purposes (dns, tftp ...) and a lot of dnsmasq parameters. Also it is
 able to manage the resolv.conf file.
 
@@ -23,7 +23,7 @@ dnsmasq_resolvconf: False
 dnsmasq_os_packages: True
 
 # Global parameters, settings needed! otherwise are ignored!
-dnsmasq_dhcp: True  
+dnsmasq_dhcp: True
 dnsmasq_tftp: True
 
 ### resolv.conf
@@ -54,7 +54,7 @@ dnsmasq_conf_bind_interfaces: 'dynamic'
 
 
 ### DNS
-# Accept DNS queries only from hosts whose address is on a local subnet,  
+# Accept DNS queries only from hosts whose address is on a local subnet,
 # ie a subnet for which an interface exists on the server.
 #dnsmasq_conf_local_service: True
 
@@ -63,7 +63,7 @@ dnsmasq_conf_domain_needed: True
 
 # Enable code to detect DNS forwarding loops; ie the situation where a query
 # sent to one of the upstream server eventually returns as a new query to the
-# dnsmasq instance.   
+# dnsmasq instance.
 #dnsmasq_conf_dns_loop_detect: True
 
 # All reverse lookups for private IP ranges (ie 192.168.x.x, etc) which
@@ -215,12 +215,12 @@ dnsmasq_conf_tftp_max: 50
 
 # Stop the TFTP server from negotiating the "blocksize" option with a client
 dnsmasq_conf_tftp_no_blocksize: False
-``` 
+```
 
-You can overwrite these default parameters as role variables. Have a look at 
+You can overwrite these default parameters as role variables. Have a look at
 the example in `site.yml` with vagrant and test it by using `vagrant up`.
 
-Apart of managing dnsmasq, this role is capable of managing `/etc/resolv.conf` 
+Apart of managing dnsmasq, this role is capable of managing `/etc/resolv.conf`
 file by defining `dnsmasq_resolvconf: true` and `dnsmasq_host_*` parameters.
 
 

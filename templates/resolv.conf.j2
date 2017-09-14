@@ -10,4 +10,3 @@ search {{ dnsmasq_host_search }}
 {% for ns in dnsmasq_host_resolvers -%}
 nameserver {{ ns }}
 {% endfor %}
-

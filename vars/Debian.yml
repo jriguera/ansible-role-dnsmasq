@@ -4,4 +4,3 @@ dnsmasq_pidfile: /var/run/dnsmasq/dnsmasq.pid
 dnsmasq_packages:
   dnsmasq:
     state: latest
-

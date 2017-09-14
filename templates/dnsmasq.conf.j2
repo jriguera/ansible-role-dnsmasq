@@ -46,10 +46,10 @@ bind-interfaces
 {% endif %}
 
 {% if dnsmasq_conf_log is defined -%}
-# Set the facility to which dnsmasq will send syslog entries, this defaults to 
-# DAEMON, and to LOCAL0 when debug mode is in operation. If the facility given 
-# contains at least one '/' character, it is taken to be a filename, and dnsmasq 
-# logs to the given file, instead of syslog. If the facility is '-' then dnsmasq 
+# Set the facility to which dnsmasq will send syslog entries, this defaults to
+# DAEMON, and to LOCAL0 when debug mode is in operation. If the facility given
+# contains at least one '/' character, it is taken to be a filename, and dnsmasq
+# logs to the given file, instead of syslog. If the facility is '-' then dnsmasq
 # logs to stderr.
 {% if dnsmasq_conf_log is none -%}
 log-facility=DAEMON
@@ -59,7 +59,7 @@ log-facility={{ dnsmasq_conf_log }}
 {% endif %}
 
 {% if dnsmasq_conf_log_async is defined -%}
-# Enable asynchronous logging and optionally set the limit on the number of 
+# Enable asynchronous logging and optionally set the limit on the number of
 # lines which will be queued by dnsmasq when writing to the syslog is slow.
 {% if dnsmasq_conf_log_async is none %}
 log-async
@@ -83,15 +83,15 @@ domain-needed
 {% endif %}
 
 {% if dnsmasq_conf_dns_loop_detect is defined and dnsmasq_conf_dns_loop_detect -%}
-# Enable code to detect DNS forwarding loops; ie the situation where a query 
-# sent to one of the upstream server eventually returns as a new query to the 
-# dnsmasq instance. 
+# Enable code to detect DNS forwarding loops; ie the situation where a query
+# sent to one of the upstream server eventually returns as a new query to the
+# dnsmasq instance.
 dns-loop-detect
 {% endif %}
 
 {% if dnsmasq_conf_bogus_priv is defined and dnsmasq_conf_bogus_priv -%}
-# All reverse lookups for private IP ranges (ie 192.168.x.x, etc) which 
-# are not found in /etc/hosts or the DHCP leases file are answered with 
+# All reverse lookups for private IP ranges (ie 192.168.x.x, etc) which
+# are not found in /etc/hosts or the DHCP leases file are answered with
 # "no such domain" rather than being forwarded upstream.
 # Never forward addresses in the non-routed address spaces.
 bogus-priv
@@ -111,7 +111,7 @@ addn-hosts={{ dnsmasq_config_addhosts }}
 # Don't poll /etc/resolv.conf for changes.
 no-poll
 {% elif dnsmasq_conf_clear_on_reload is defined and dnsmasq_conf_clear_on_reload %}
-# If /etc/resolv.conf is re-read or the upstream servers are set via DBus, 
+# If /etc/resolv.conf is re-read or the upstream servers are set via DBus,
 # clear the DNS cache.
 clear-on-reload
 {% endif %}
@@ -121,26 +121,26 @@ cache-size={{ dnsmasq_conf_cache_size | default('1024') }}
 
 {% if dnsmasq_conf_negcache is defined -%}
 {% if not dnsmasq_conf_negcache is none -%}
-# Negative replies from upstream servers normally contain time-to-live 
+# Negative replies from upstream servers normally contain time-to-live
 # information in SOA records which dnsmasq uses for caching.
 neg-ttl={{ dnsmasq_conf_negcache }}
 {% else %}
-# Disable negative caching. Negative caching allows dnsmasq to remember 
-# "no such domain" answers from upstream nameservers and answer identical 
+# Disable negative caching. Negative caching allows dnsmasq to remember
+# "no such domain" answers from upstream nameservers and answer identical
 # queries without forwarding them again.
 no-negcache
 {% endif %}
 {% endif %}
 
 {% if dnsmasq_conf_strict_order is defined and dnsmasq_conf_strict_order -%}
-# This flag forces dnsmasq to try each query with each server strictly in 
+# This flag forces dnsmasq to try each query with each server strictly in
 # the order they appear in /etc/resolv.conf
 strict-order
 {% endif %}
 
 {% if dnsmasq_conf_all_servers is defined and dnsmasq_conf_all_servers -%}
-# This flag forces dnsmasq to send all queries to all available servers. 
-# The reply from the server which answers first will be returned to the 
+# This flag forces dnsmasq to send all queries to all available servers.
+# The reply from the server which answers first will be returned to the
 # original requester.
 all-servers
 {% endif %}
@@ -176,7 +176,7 @@ mx-target={{ dnsmasq_conf_mx }}
 {% endif %}
 
 {% if dnsmasq_conf_servers is defined and dnsmasq_conf_servers is iterable -%}
-# Specify IP address of upstream servers directly. Setting this flag does not 
+# Specify IP address of upstream servers directly. Setting this flag does not
 # suppress reading of /etc/resolv.conf.
 {% for server in dnsmasq_conf_servers -%}
 {% if server is string -%}
@@ -195,11 +195,9 @@ address={{ host | join(',') }}
 {% endif %}
 
 {% if dnsmasq_conf_host_records is defined and dnsmasq_conf_host_records is iterable -%}
-# Add A, AAAA and PTR records to the DNS. This adds one or more names to the 
+# Add A, AAAA and PTR records to the DNS. This adds one or more names to the
 # DNS with associated IPv4 (A) and IPv6 (AAAA) records
 {% for host in dnsmasq_conf_host_records -%}
 host-record={{ host | join(',') }}
 {% endfor %}
 {% endif %}
-
-
