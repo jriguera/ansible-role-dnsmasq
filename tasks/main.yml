@@ -2,9 +2,9 @@
 - name: Control if the role is supported on this system
   fail: msg="Dnsmasq role is not supported on this system"
   when: >
-     ansible_distribution != 'Ubuntu' and 
-     ansible_distribution != 'CentOS' and 
-     ansible_distribution != 'Debian' and 
+     ansible_distribution != 'Ubuntu' and
+     ansible_distribution != 'CentOS' and
+     ansible_distribution != 'Debian' and
      ansible_distribution != 'Red Hat Enterprise Linux'
 
 - name: Include OS specific variables
@@ -20,4 +20,3 @@
 
 - include: configure.yml
   tags: ["dnsmasq", "configure"]
-

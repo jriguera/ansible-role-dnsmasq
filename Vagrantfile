@@ -52,7 +52,7 @@ Vagrant.configure(2) do |config|
 #        sudo apt-get update
 #    SHELL
     master.vm.provision "ansible" do |ansible|
-	ansible.playbook = "site.yml"
+        ansible.playbook = "site.yml"
         #ansible.verbose = "vvv"
         #ansible.raw_arguments = "--list-task"
     end

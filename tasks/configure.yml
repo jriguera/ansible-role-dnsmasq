@@ -131,4 +131,3 @@
     name: "{{ dnsmasq_daemon }}"
     state: started
     enabled: "{{ dnsmasq_enabled_on_startup | ternary('yes', 'no') }}"
-

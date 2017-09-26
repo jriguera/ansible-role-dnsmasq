@@ -17,4 +17,3 @@ dnsmasq_var_dir: /var/lib/dnsmasq
 dnsmasq_config_addhosts: /etc/dnsmasq.hosts
 dnsmasq_config_dhcphosts: /var/lib/dnsmasq/dhcp.leases
 dnsmasq_config_dhcpscript: /var/lib/dnsmasq/script
-
