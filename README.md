@@ -142,6 +142,9 @@ dnsmasq_conf_servers: [ "8.8.8.8", "8.8.4.4" ]
 #dnsmasq_conf_host_records:
 #  -[]
 
+# Define a DNS zone for which dnsmasq acts as authoritative server.
+#dnsmasq_conf_auth_zone: []
+
 
 ### DHCP
 

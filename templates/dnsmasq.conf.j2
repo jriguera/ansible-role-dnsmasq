@@ -187,6 +187,12 @@ server={{ server | join(',') }}
 {% endfor %}
 {% endif %}
 
+{% if dnsmasq_conf_auth_zone is defined and dnsmasq_conf_auth_zone is iterable -%}
+{% for domain in dnsmasq_conf_auth_zone %}
+auth-zone={{ domain }}
+{% endfor %}
+{% endif %}
+
 {% if dnsmasq_conf_address is defined and dnsmasq_conf_address is iterable -%}
 # Specify an IP address to return for any host in the given domains.
 {% for host in dnsmasq_conf_address %}
